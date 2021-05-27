@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private String cityName;
     private String picURL;
     private ImageView weatherImage;
+    private LinearLayout weatherInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         weatherImage = findViewById(R.id.weatherIcon);
+        weatherInfo = findViewById(R.id.weatherInformation);
+        weatherInfo.setVisibility(View.INVISIBLE);
     }
 
     public void getWeather(){
@@ -133,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
 
         String imgURL = "https://openweathermap.org/img/wn/" + picURL + "@2x.png";
         Picasso.get().load(imgURL).into(weatherImage);
+        weatherInfo.setVisibility(View.VISIBLE);
     }
 
 }
