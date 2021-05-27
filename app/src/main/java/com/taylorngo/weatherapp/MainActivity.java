@@ -14,6 +14,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private String weatherDesc;
     private String cityName;
     private String picURL;
+    private ImageView weatherImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        weatherImage = findViewById(R.id.weatherIcon);
     }
 
     public void getWeather(){
@@ -126,9 +128,11 @@ public class MainActivity extends AppCompatActivity {
         else{
             sunsetTimeString += sunsetTime.getMinutes();
         }
-
         sunriseText.setText("Sunrise: " + sunriseTimeString);
         sunsetText.setText("Sunset: " + sunsetTimeString);
+
+        String imgURL = "https://openweathermap.org/img/wn/" + picURL + "@2x.png";
+        Picasso.get().load(imgURL).into(weatherImage);
     }
 
 }

@@ -67,12 +67,22 @@
                     android:textSize="15dp" />
             </LinearLayout>
 
+            <Space
+                android:layout_width="27dp"
+                android:layout_height="93dp"
+                android:layout_weight="1" />
+
             <ImageView
                 android:id="@+id/weatherIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="114dp"
+                android:layout_height="99dp"
                 android:layout_weight="1"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:scaleType="fitXY" />
+
+            <Space
+                android:layout_width="37dp"
+                android:layout_height="93dp"
+                android:layout_weight="1" />
         </LinearLayout>
 
         <Space
@@ -102,7 +112,7 @@
         android:layout_gravity="center"
         android:ems="10"
         android:hint="Enter a city."
-        android:inputType="textPersonName" />
+        android:inputType="textCapWords" />
 
     <Button
         android:id="@+id/getWeatherBtn"
