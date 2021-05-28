@@ -58,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
     public void getWeather(){
         EditText cityText = findViewById(R.id.cityInput);
         String city = cityText.getText().toString();
+        if(city.isEmpty() || city.trim().length() == 0){
+            return;
+        }
         String API_KEY = getString(R.string.open_weather_app_api_key);
         String urlString = "https://api.openweathermap.org/data/2.5/weather?q="
                 + city + "&appid=" + API_KEY + "&units=imperial";
